@@ -1,0 +1,1073 @@
+<templateSet group="Sweetchuck - PHP">
+    <template name="fore"
+              description="foreach(iterable_expr as $value) {...}"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="iterable"
+                  expression="phpVar"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="value"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+foreach ($iterable$ as $value$) {
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="forek"
+              description="foreach(iterable_expr as $key =&gt; $value) {...}"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="iterable"
+                  expression="phpVar"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="key"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="value"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+foreach ($iterable$ as $key$ => $value$) {
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="thrown"
+              description="throw new"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+throw new \$END$Exception();
+]]>
+        </value>
+    </template>
+    <template name="pubf"
+              description="public function"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="NAME"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="PARAMETERS"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnTypeHint"
+                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+public function $NAME$($PARAMETERS$)$returnTypeHint$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="pubsf"
+              description="public static function"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="NAME"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="PARAMETERS"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnTypeHint"
+                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+public static function $NAME$($PARAMETERS$)$returnTypeHint$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="prof"
+              description="protected function"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="NAME"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="PARAMETERS"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnTypeHint"
+                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+protected function $NAME$($PARAMETERS$)$returnTypeHint$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="prosf"
+              description="protected static function"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="NAME"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="PARAMETERS"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnTypeHint"
+                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+protected static function $NAME$($PARAMETERS$)$returnTypeHint$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="prif"
+              description="private function"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="NAME"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="PARAMETERS"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnTypeHint"
+                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+private function $NAME$($PARAMETERS$)$returnTypeHint$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="prisf"
+              description="private static function"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="NAME"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="PARAMETERS"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnTypeHint"
+                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+private static function $NAME$($PARAMETERS$)$returnTypeHint$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="iterator_dir"
+              description="DirectoryIterator - Only directories."
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="directory"
+                  expression=""
+                  defaultValue="&quot;'/path/to/dir'&quot;"
+                  alwaysStopAt="true" />
+        <variable name="iterator"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+$iterator$ = new \DirectoryIterator($directory$);
+while ($iterator$->valid()) {
+  if ($iterator$->isDot() || !$iterator$->isDir()) {
+    $iterator$->next();
+    continue;
+  }
+
+  $END$// Do something.
+
+  $iterator$->next();
+}
+]]>
+        </value>
+    </template>
+    <template name="iterator_file"
+              description="DirectoryIterator - Only files."
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="directory"
+                  expression=""
+                  defaultValue="&quot;'/path/to/dir'&quot;"
+                  alwaysStopAt="true" />
+        <variable name="iterator"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Class Member"
+                    value="false" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+$iterator$ = new \DirectoryIterator($directory$);
+while ($iterator$->valid()) {
+  if ($iterator$->isDir()) {
+    $iterator$->next();
+    continue;
+  }
+
+  $END$// Do something.
+
+  $iterator$->next();
+}
+]]>
+        </value>
+    </template>
+    <template name="iterator_glob"
+              description="GlobIterator"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="directory"
+                  expression=""
+                  defaultValue="&quot;'/path/to/dir/*.*'&quot;"
+                  alwaysStopAt="true" />
+        <variable name="iterator"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Class Member"
+                    value="false" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+$iterator$ = new \GlobIterator($directory$);
+while ($iterator$->valid()) {
+  $END$ // Do something.
+
+  $iterator$->next();
+}
+]]>
+        </value>
+    </template>
+    <template name="switch"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="subject"
+                  expression="phpVar"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+switch ($subject$) {
+  case '$END$':
+    break;
+
+  default:
+    // @todo Do something.
+    break;
+}
+]]>
+        </value>
+    </template>
+    <template name="case"
+              description="case inside a switch () {}"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="case"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+case '$case$':
+  $END$
+  break;
+
+]]>
+        </value>
+    </template>
+    <template name="if_body"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+if ($END$$condition$) {
+  $SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="ife"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+if ($condition$) {
+  $END$$SELECTION$
+}
+else {
+}
+]]>
+        </value>
+    </template>
+    <template name="ifc"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="negate"
+                  expression="enum(&quot;&quot;, &quot;!&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="checker"
+                  expression="enum(&quot;isset&quot;, &quot;empty&quot;, &quot;array_key_exists&quot;, &quot;is_int&quot;, &quot;is_float&quot;, &quot;is_numeric&quot;, &quot;is_string&quot;, &quot;is_null&quot;, &quot;is_object&quot;, &quot;is_array&quot;, &quot;in_array&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+if ($negate$$checker$($END$)) {
+  $SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="kva"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+'$key$' => [$END$$SELECTION$],
+]]>
+        </value>
+    </template>
+    <template name="while"
+              description="while"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+while ($condition$) {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="for_classic"
+              description="for ($i = 0; $i &lt; count(); $i++) {}"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="countable"
+                  expression="phpVar"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="index"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+for ($index$ = 0; $index$ < count($countable$); $index$++) {
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="elseif"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <value>
+<![CDATA[
+elseif ($condition$) {
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="@par"
+              description="PHPDoc @param"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="type"
+                  expression="enum(&quot;array&quot;, &quot;int&quot;, &quot;float&quot;, &quot;double&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;object&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="variable"
+                  expression=""
+                  defaultValue="&quot;ctrl_space&quot;"
+                  alwaysStopAt="true" />
+        <variable name="description"
+                  expression=""
+                  defaultValue="&quot;Some informative description.&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Comment"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+@param $type$ $$$variable$
+ *   $description$
+]]>
+        </value>
+    </template>
+    <template name="kvs"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Class Member"
+                    value="false" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+'$key$' => '$END$',
+]]>
+        </value>
+    </template>
+    <template name="kvb"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="value"
+                  expression="enum(&quot;TRUE&quot;, &quot;FALSE&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+'$key$' => $value$,
+]]>
+        </value>
+    </template>
+    <template name="try"
+              description="Try - Catch"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+try {
+  $SELECTION$$END$
+}
+catch (\Throwable $exception) {
+}
+]]>
+        </value>
+    </template>
+    <template name="kvv"
+              description="Array key =&gt; value. The value can be anything."
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="value"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+'$key$' => $value$,$END$
+]]>
+        </value>
+    </template>
+    <template name="func"
+              description="New function"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression="firstWord(fileNameWithoutExtension())"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="parameters"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+function $name$($parameters$): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="rett"
+              description="Return TRUE;"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+return TRUE;
+]]>
+        </value>
+    </template>
+    <template name="retf"
+              description="Return FALSE;"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+return FALSE;
+]]>
+        </value>
+    </template>
+    <template name="retn"
+              description="Return NULL;"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+return NULL;
+]]>
+        </value>
+    </template>
+    <template name="inh"
+              description="PhpDoc - @inheritdoc inline"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Interface Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * {@inheritdoc}
+ */
+]]>
+        </value>
+    </template>
+    <template name="reth"
+              description="return $this;"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+return $this;$END$
+]]>
+        </value>
+    </template>
+    <template name="kvc"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+'$key$' => function ($END$): void {
+},
+]]>
+        </value>
+    </template>
+    <template name="declare_strict_types"
+              description="declare(strict_types = 1);"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+declare(strict_types = 1);
+]]>
+        </value>
+    </template>
+    <template name="retns"
+              description="return new static();"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+// @phpstan-ignore-next-line
+return new static(
+  $container->get('$END$'),
+);
+]]>
+        </value>
+    </template>
+    <template name="property"
+              description="Class property"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="visibility"
+                  expression="enum(&quot;public&quot;, &quot;protected&quot;, &quot;private&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="typeHint"
+                  expression="enum(&quot;int&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;array&quot;, &quot;float&quot;, &quot;callable&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="name"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+$visibility$ $typeHint$ $$$name$;
+]]>
+        </value>
+    </template>
+    <template name="retv"
+              description="return $foo;"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="var"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+return $var$;
+]]>
+        </value>
+    </template>
+    <template name="@method_getset"
+              description="PHPDoc @method"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="type"
+                  expression="enum(&quot;array&quot;, &quot;int&quot;, &quot;float&quot;, &quot;double&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;object&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="name"
+                  expression="capitalize(camelCase(SELECTION))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Comment"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+@method $type$ get$name$()
+ * @method $this set$name$($type$ $value): static
+]]>
+        </value>
+    </template>
+    <template name="while_iterator"
+              description="while"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="iterableVarName"
+                  expression="phpVar"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="current"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+while ($iterableVarName$->valid()) {
+  $current$ = $iterableVarName$->current();
+  $END$// Do something.
+  $iterableVarName$->next();
+}
+]]>
+        </value>
+    </template>
+    <template name="//r"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression="clipboard()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Comment"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+// region $name$
+$SELECTION$
+// endregion
+]]>
+        </value>
+    </template>
+    <template name="match"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="subject"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="enum(&quot;;&quot;, &quot;,&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+match ($subject$) {
+  'foo$END$' => 'bar',
+  default => 'okay',
+}$terminator$
+]]>
+        </value>
+    </template>
+    <template name="method"
+              description="Class method"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="visibility"
+                  expression="enum(&quot;public&quot;, &quot;protected&quot;, &quot;private&quot;, &quot;public static&quot;, &quot;protected static&quot;, &quot;private static&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="NAME"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="PARAMETERS"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnTypeHint"
+                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+$visibility$ function $NAME$($PARAMETERS$)$returnTypeHint$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="for_classic_reverse"
+              description="for ($i = count() - 1; $i &gt;= 0; $i--) {}"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="countable"
+                  expression="phpVar"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="index"
+                  expression="phpSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+for ($index$ = count($countable$) - 1; $index$ >= 0; $index$--) {
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="if_condition"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+if ($END$$SELECTION$) {
+}
+]]>
+        </value>
+    </template>
+</templateSet>

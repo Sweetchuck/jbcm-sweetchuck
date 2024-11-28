@@ -1,0 +1,227 @@
+<templateSet group="Sweetchuck - CircleCI">
+    <template name="circleci_step_run"
+              description="Item in the /commands/*/steps array"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="ELM"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="Handlebars"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+run:
+  name: 'My noname step'
+  command: |-
+    echo 'Hello'
+]]>
+        </value>
+    </template>
+    <template name="circleci_step_store_test_results"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression="enum(&quot;Behat&quot;, &quot;Lint&quot;, &quot;Unit&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="ELM"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="Handlebars"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+store_test_results:
+  name: 'Store $name$ test results'
+  path: './reports/machine/junit'
+]]>
+        </value>
+    </template>
+    <template name="circleci_command"
+              description="Entry under the /commands key"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="command_name"
+                  expression=""
+                  defaultValue="&quot;my_step_01&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="ELM"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="Handlebars"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+$command_name$:
+  description: ''
+  steps:
+    -
+      circleci_step$END$
+]]>
+        </value>
+    </template>
+    <template name="badge__circleci"
+              description="Add CircleCI badge"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="vendor"
+                  expression="regularExpression(filePath(), &quot;^.+?\/([^/]+)\/[^/]+\/[^/]+$&quot;, &quot;$1&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="project"
+                  expression="regularExpression(filePath(), &quot;^.+?\/([^/]+)\/[^/]+$&quot;, &quot;$1&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="branch"
+                  expression="enum(&quot;1.x&quot;, &quot;2.x&quot;, &quot;3.x&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+[![CircleCI](https://circleci.com/gh/$vendor$/$project$/tree/$branch$.svg?style=svg)](https://circleci.com/gh/$vendor$/$project$/?branch=$branch$)$END$
+]]>
+        </value>
+    </template>
+</templateSet>

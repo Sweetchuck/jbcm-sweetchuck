@@ -1,0 +1,187 @@
+<templateSet group="Sweetchuck - composer.json">
+    <template name="repo_github_zip"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="projectName"
+                  expression=""
+                  defaultValue="&quot;foo/bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="githubOrganization"
+                  expression="regularExpression(packageName, &quot;/.*&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="githubRepo"
+                  expression="regularExpression(packageName, &quot;^.+?/&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="reference"
+                  expression=""
+                  defaultValue="&quot;1.x&quot;"
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$projectName$": {
+    "type": "package",
+    "package": {
+        "name": "$projectName$",
+        "version": "1.0.0",
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/$githubOrganization$/$githubRepo$/archive/$reference$.zip"
+        },
+        "source": {
+            "type": "git",
+            "url": "https://github.com/$githubOrganization$/$githubRepo$.git",
+            "reference": "$reference$"
+        }
+    }
+}$terminator$
+]]>
+        </value>
+    </template>
+    <template name="repo_path"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression="clipboard()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="branch"
+                  expression="enum(&quot;1.x&quot;, &quot;2.x&quot;, &quot;3.x&quot;, &quot;4.x&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$name$": {
+    "type": "path",
+    "url": "../../$name$-$branch$"
+}$terminator$
+]]>
+        </value>
+    </template>
+    <template name="repos"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"repositories": {
+  repo_$END$
+}$terminator$
+]]>
+        </value>
+    </template>
+    <template name="repo_github_https"
+              description="New entry in #/repositories"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="packageName"
+                  expression=""
+                  defaultValue="&quot;foo/bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="githubOrganization"
+                  expression="regularExpression(packageName, &quot;/.*&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="githubRepo"
+                  expression="regularExpression(packageName, &quot;^.+?/&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$packageName$": {
+    "type": "github",
+    "url": "https://github.com/$githubOrganization$/$githubRepo$.git"
+}$terminator$$END$
+]]>
+        </value>
+    </template>
+    <template name="repo_github_ssh"
+              description="New entry in #/repositories"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="projectName"
+                  expression=""
+                  defaultValue="&quot;foo/bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="githubOrganization"
+                  expression="regularExpression(packageName, &quot;/.*&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="githubRepo"
+                  expression="regularExpression(packageName, &quot;^.+?/&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$projectName$": {
+    "type": "github",
+    "url": "git@github.com:$githubOrganization$/$githubRepo$.git"
+}$terminator$$END$
+]]>
+        </value>
+    </template>
+    <template name="repo_asset"
+              description="New entry in #/repositories"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"assets": {
+    "type": "composer",
+    "url": "https://asset-packagist.org"
+}$terminator$
+]]>
+        </value>
+    </template>
+</templateSet>

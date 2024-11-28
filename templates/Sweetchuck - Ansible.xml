@@ -1,0 +1,50 @@
+<templateSet group="Sweetchuck - Ansible">
+    <template name="ansible_when_os_family"
+              description="Ansible - OS family condition in &quot;when&quot; clause"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="os_family"
+                  expression="enum(&quot;suse&quot;, &quot;debian&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="true" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+"ansible_facts['os_family']|lower == '$os_family$'"$END$
+]]>
+        </value>
+    </template>
+</templateSet>

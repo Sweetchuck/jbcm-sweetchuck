@@ -1,0 +1,185 @@
+<templateSet group="Sweetchuck - Gherkin">
+    <template name="s"
+              description="Scenario"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="description"
+                  expression=""
+                  defaultValue="&quot;Some helpful description.&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+Scenario: $description$
+  g$END$
+  w
+  t
+]]>
+        </value>
+    </template>
+    <template name="f"
+              description="Feature"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="description"
+                  expression=""
+                  defaultValue="&quot;Some helpful description.&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+Feature: $description$
+  b$END$
+
+  s
+]]>
+        </value>
+    </template>
+    <template name="g"
+              description="Given and And"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression="enum(&quot;Given&quot;, &quot;And&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="action"
+                  expression="enum(&quot;I am on the homepage&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+$condition$ $action$
+g$END$
+]]>
+        </value>
+    </template>
+    <template name="w"
+              description="When and And"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression="enum(&quot;When&quot;, &quot;And&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="action"
+                  expression="enum(&quot;I wait for 5 seconds&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+$condition$ $action$
+w$END$
+]]>
+        </value>
+    </template>
+    <template name="t"
+              description="Then and And"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression="enum(&quot;Then&quot;, &quot;And&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="action"
+                  expression="enum(&quot;I should see the text \&quot;foo\&quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+$condition$ $action$
+t$END$
+]]>
+        </value>
+    </template>
+    <template name="b"
+              description="Background definition"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+Background:
+  g$END$
+
+]]>
+        </value>
+    </template>
+    <template name="aib"
+              description="And I break"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+And I break$END$
+]]>
+        </value>
+    </template>
+    <template name="so"
+              description="Scenario Outline"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="description"
+                  expression=""
+                  defaultValue="&quot;Some helpful description.&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+Scenario Outline: $description$
+  g$END$
+  w
+  t
+  Examples:
+    | foo | bar |
+    |   a |   b |
+    |   c |   d |
+]]>
+        </value>
+    </template>
+    <template name="e"
+              description="Examples part of a Scenario Outline"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+Examples:
+  | $END$foo | bar |
+  |   a |   b |
+  |   c |   d |
+]]>
+        </value>
+    </template>
+</templateSet>

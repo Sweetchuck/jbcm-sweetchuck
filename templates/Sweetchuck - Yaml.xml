@@ -1,0 +1,56 @@
+<templateSet group="Sweetchuck - Yaml">
+    <template name="@var"
+              description="Doc comment"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="type"
+                  expression="enum(&quot;bool&quot;, &quot;int&quot;, &quot;float&quot;, &quot;string&quot;, &quot;array&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="description"
+                  expression="&quot;@todo&quot;"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Bash"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="MARKDOWN"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+##
+# $description$
+#
+# @var $type$
+##
+]]>
+        </value>
+    </template>
+</templateSet>

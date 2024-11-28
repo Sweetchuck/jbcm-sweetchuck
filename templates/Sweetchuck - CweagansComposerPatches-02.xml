@@ -1,0 +1,102 @@
+<templateSet group="Sweetchuck - CweagansComposerPatches-02">
+    <template name="patch_definition"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="description"
+                  expression="&quot;Fix broken feature&quot;"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="patch_url"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="sha256"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="depth"
+                  expression="enum(&quot;3&quot;, &quot;2&quot;, &quot;1&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="issue_url"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{
+    "description": "$description$",
+    "url": "$patch_url$",
+    "sha256": "$sha256$",
+    "depth": $depth$,
+    "extra": {
+        "issue-tracker-url": "$issue_url$"
+    }
+}$terminator$
+]]>
+        </value>
+    </template>
+    <template name="patches"
+              description="Direct descendant etries under &quot;extra&quot;"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"composer-patches": {
+    "_comment": "https://docs.cweagans.net/composer-patches/usage/configuration/",
+    "disable-resolvers": [],
+    "disable-downloaders": [],
+    "disable-patchers": [],
+    "default-patch-depth": 3,
+    "package-depths": {
+        "my-vendor-01/my-package-01": 3
+    }
+},
+"patches": {
+    patches_entry$END$
+}$terminator$
+]]>
+        </value>
+    </template>
+    <template name="patches_entry"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="package_name"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$package_name$": [
+    patch_definition$END$
+]$terminator$
+]]>
+        </value>
+    </template>
+</templateSet>

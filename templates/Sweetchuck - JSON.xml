@@ -1,0 +1,62 @@
+<templateSet group="Sweetchuck - JSON">
+    <template name="kva"
+              description="key: {}"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$key$": {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="kvb"
+              description="key: true|false"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="value"
+                  expression="enum(&quot;true&quot;, &quot;false&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$key$": $value$
+]]>
+        </value>
+    </template>
+    <template name="kvs"
+              description="key: &quot;&quot;"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$key$": "$END$"
+]]>
+        </value>
+    </template>
+</templateSet>

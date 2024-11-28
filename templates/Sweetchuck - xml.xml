@@ -1,0 +1,21 @@
+<templateSet group="Sweetchuck - xml">
+    <template name="cdata"
+              description="Surround with CDATA section"
+              toReformat="false"
+              toShortenFQNames="false">
+        <context>
+            <option name="HTML"
+                    value="true" />
+            <option name="XML_TEXT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+<![CDATA[
+$SELECTION$
+]]]]>
+<![CDATA[>
+]]>
+        </value>
+    </template>
+</templateSet>

@@ -1,0 +1,398 @@
+<templateSet group="Sweetchuck - Twig">
+    <template name="if"
+              description="Twig - if"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% if $condition$ %}$END$
+$SELECTION$
+{% endif %}
+]]>
+        </value>
+    </template>
+    <template name="block"
+              description="block...endblock"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="NAME"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% block $NAME$ %}
+    $END$$SELECTION$
+{% endblock %}
+
+]]>
+        </value>
+    </template>
+    <template name="embed"
+              description="embed 'template'...endembed"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="TEMPLATE"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% embed $TEMPLATE$ %}
+    $END$
+{% endembed %}
+
+]]>
+        </value>
+    </template>
+    <template name="autoescape"
+              description="autoescape...endautoescape"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="TYPE"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% autoescape $TYPE$ %}
+    $END$$SELECTION$
+{% endautoescape %}
+
+]]>
+        </value>
+    </template>
+    <template name="extends"
+              description="extends &quot;template&quot;"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="TEMPLATE"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% extends "$TEMPLATE$" %}
+
+]]>
+        </value>
+    </template>
+    <template name="for"
+              description="Twig - for...in...endfor"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;my_loop_key&quot;"
+                  alwaysStopAt="true" />
+        <variable name="value"
+                  expression=""
+                  defaultValue="&quot;my_loop_value&quot;"
+                  alwaysStopAt="true" />
+        <variable name="iterable"
+                  expression=""
+                  defaultValue="&quot;my_iterable&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% for $key$, $value$ in $iterable$ %}$END$
+    $SELECTION$
+{% endfor %}
+]]>
+        </value>
+    </template>
+    <template name="from"
+              description="from 'template' import..."
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="TEMPLATE"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% from '$TEMPLATE$' import $END$ %}
+
+]]>
+        </value>
+    </template>
+    <template name="switch"
+              description="switch...endswitch"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="condition"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% switch $condition$ %}
+  {% case '$END$foo' %}
+    do something
+  {% default %}
+    do something else
+{% endswitch %}
+]]>
+        </value>
+    </template>
+    <template name="imp"
+              description="import 'template'"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="TEMPLATE"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% import '$TEMPLATE$'$END$ %}
+]]>
+        </value>
+    </template>
+    <template name="inc"
+              description="include 'template'"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="TEMPLATE"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% include '$TEMPLATE$'$END$ %}
+]]>
+        </value>
+    </template>
+    <template name="macro"
+              description="macro...endmacro"
+              toReformat="true"
+              toShortenFQNames="false">
+        <variable name="NAME"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="PARAMETERS"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% macro $NAME$($PARAMETERS$) %}
+    $END$
+{% endmacro %}
+
+]]>
+        </value>
+    </template>
+    <template name="sandbox"
+              description="sandbox...endsandbox"
+              toReformat="true"
+              toShortenFQNames="false">
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% sandbox %}
+    $END$$SELECTION$
+{% endsandbox %}
+]]>
+        </value>
+    </template>
+    <template name="spaceless"
+              description="spaceless...endspaceless"
+              toReformat="false"
+              toShortenFQNames="false">
+        <context>
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% spaceless %}
+    $END$
+{% endspaceless %}
+]]>
+        </value>
+    </template>
+    <template name="verbatim"
+              description="verbatim...endverbatim"
+              toReformat="false"
+              toShortenFQNames="false">
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="Handlebars"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="MARKDOWN"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="PROTO"
+                    value="false" />
+            <option name="PROTOTEXT"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+{% verbatim %}$END$
+$SELECTION$
+{% endverbatim %}
+]]>
+        </value>
+    </template>
+    <template name="ife"
+              description="Twig - if ... else .. endif"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="HAML"
+                    value="false" />
+            <option name="Twig"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{% if $condition$ %}$END$
+$SELECTION$
+{% else %}
+{% endif %}
+]]>
+        </value>
+    </template>
+    <template name="echo"
+              description=""
+              toReformat="false"
+              toShortenFQNames="false">
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="Handlebars"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="MARKDOWN"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="PROTO"
+                    value="false" />
+            <option name="PROTOTEXT"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+{{ '$SELECTION$' }}
+]]>
+        </value>
+    </template>
+</templateSet>

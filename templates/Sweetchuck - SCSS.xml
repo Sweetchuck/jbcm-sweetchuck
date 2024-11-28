@@ -1,0 +1,166 @@
+<templateSet group="Sweetchuck - SCSS">
+    <template name="for"
+              description="Control directive"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="index"
+                  expression=""
+                  defaultValue="&quot;i&quot;"
+                  alwaysStopAt="true" />
+        <variable name="from"
+                  expression=""
+                  defaultValue="&quot;1&quot;"
+                  alwaysStopAt="true" />
+        <variable name="to"
+                  expression=""
+                  defaultValue="&quot;10&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="true" />
+            <option name="CSS_PROPERTY_VALUE"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+@for $$$index$ from $from$ through $to$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="mixin"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression="fileNameWithoutExtension()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="true" />
+            <option name="CSS_PROPERTY_VALUE"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+@mixin $name$($END$) {
+}
+]]>
+        </value>
+    </template>
+    <template name="ife"
+              description="Control directive"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue="&quot;$foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="true" />
+            <option name="CSS_PROPERTY_VALUE"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+@if $condition$ {
+  $SELECTION$
+}
+@else {
+}
+]]>
+        </value>
+    </template>
+    <template name="if"
+              description="Control directive"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue="&quot;$foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+@if $condition$ {
+  $SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="func"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression="fileNameWithoutExtension()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="true" />
+            <option name="CSS_PROPERTY_VALUE"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+@function $name$($END$) {
+}
+]]>
+        </value>
+    </template>
+    <template name="fore"
+              description="Control directive"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="item"
+                  expression=""
+                  defaultValue="&quot;item&quot;"
+                  alwaysStopAt="true" />
+        <variable name="list"
+                  expression=""
+                  defaultValue="&quot;$list&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="true" />
+            <option name="CSS_PROPERTY_VALUE"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+@each $$$item$ in $list$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="while"
+              description="Control directive"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="true" />
+            <option name="CSS_PROPERTY_VALUE"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+@while $condition$ {
+  $END$
+}
+]]>
+        </value>
+    </template>
+</templateSet>

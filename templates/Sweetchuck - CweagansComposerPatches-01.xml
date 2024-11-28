@@ -1,0 +1,39 @@
+<templateSet group="Sweetchuck - CweagansComposerPatches-01">
+    <template name="patch"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true"
+              deactivated="true">
+        <variable name="vendor"
+                  expression=""
+                  defaultValue="&quot;drupal&quot;"
+                  alwaysStopAt="true" />
+        <variable name="name"
+                  expression=""
+                  defaultValue="&quot;bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="description"
+                  expression=""
+                  defaultValue="&quot;Link to issue - Issue title&quot;"
+                  alwaysStopAt="true" />
+        <variable name="url"
+                  expression="clipboard()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="jsonAddComma()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$vendor$/$name$": {
+    $END$"$description$": "$url$",
+}$terminator$
+]]>
+        </value>
+    </template>
+</templateSet>

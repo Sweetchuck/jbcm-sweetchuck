@@ -1,0 +1,231 @@
+<templateSet group="Sweetchuck - JavaScript">
+    <template name="for_object_key"
+              description="for (let value in myObject)"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="myObject"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="key"
+                  expression="jsSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="value"
+                  expression="jsSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+for (let $key$ in $myObject$) {
+  let $value$ = $myObject$[$key$];
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="for_array_index_in"
+              description="Gets the array indexes from 0 to *.length"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="myArray"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="index"
+                  expression="jsSuggestIndexName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="item"
+                  expression="jsSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+            <option name="JS_CLASS"
+                    value="false" />
+            <option name="JS_DOT_PROPERTY_ACCESS"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+for (let $index$ in $myArray$) {
+  let $item$ = $myArray$[$index$];
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="for_array_index_classic_reverse"
+              description="Iterate elements of array in reverse order"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="myArray"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="index"
+                  expression="jsSuggestIndexName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="item"
+                  expression="jsSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+for (let $index$ = $myArray$.length - 1; $index$ >= 0; $index$--) {
+  let $item$ = $myArray$[$index$];
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="switch"
+              description="Control structures: switch"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="subject"
+                  expression="completeSmart()"
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+switch ($subject$) {
+  case$END$
+}
+]]>
+        </value>
+    </template>
+    <template name="case"
+              description="Control structures: switch, case"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="case"
+                  expression=""
+                  defaultValue="&quot;bar&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+case '$case$':
+  $END$
+  break;
+
+]]>
+        </value>
+    </template>
+    <template name="if_condition"
+              description="Control structures: if"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+if ($SELECTION$) {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="if_body"
+              description="Control structures: if - Surround"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+if ($condition$) {
+  $SELECTION$$END$
+}
+]]>
+        </value>
+    </template>
+    <template name="for_object_key_and_value"
+              description="Iterates over the key-value pairs of an object"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="myObject"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="key"
+                  expression="jsSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="value"
+                  expression="jsSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+for (const [$key$, $value$] of Object.entries($myObject$)) {
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="for_array_index_classic"
+              description="Iterate elements of array"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="myArray"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="index"
+                  expression="jsSuggestIndexName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="item"
+                  expression="jsSuggestVariableName()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+            <option name="JS_CLASS"
+                    value="false" />
+            <option name="JS_DOT_PROPERTY_ACCESS"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+for (let $index$ = 0; $index$ < $myArray$.length; $index$++) {
+  let $item$ = $myArray$[$index$];
+  $END$
+}
+]]>
+        </value>
+    </template>
+</templateSet>

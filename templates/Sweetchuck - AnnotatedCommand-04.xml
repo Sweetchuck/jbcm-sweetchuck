@@ -1,0 +1,883 @@
+<templateSet group="Sweetchuck - AnnotatedCommand-04">
+    <template name="ac_hook_interact_target"
+              description="Annotated command - hook - interact"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;app:foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(target, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::INTERACT,
+    target: '$target$',
+)]
+public function cmd$targetUpperCamel$Interact(
+    \Symfony\Component\Console\Input\InputInterface $input,
+    \Symfony\Component\Console\Output\OutputInterface $output,
+    \Consolidation\AnnotatedCommand\AnnotationData $annotationData,
+): void {
+    $END$$io = new \Symfony\Component\Console\Style\SymfonyStyle($input, $output);
+
+    // If the user did not specify a password, then prompt for one.
+    $password = $input->getOption('password');
+    if (empty($password)) {
+        $password = $io->askHidden("Enter a password:", function ($value) { return $value; });
+        $input->setOption('password', $password);
+    }
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_option_target"
+              description="Annotated command - hook - option"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(target, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::OPTION_HOOK,
+    target: '$target$',
+)]
+public function cmd$targetUpperCamel$Option(\Symfony\Component\Console\Command\Command $command, \Consolidation\AnnotatedCommand\AnnotationData $annotationData): void
+{
+    $END$$command->addOption(
+        'dynamic',
+        '',
+        \Symfony\Component\Console\Input\InputOption::VALUE_NONE,
+        'Option added by @hook option some:command',
+    );
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_init_target"
+              description="Annotated command - hook - init"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;app:foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(target))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::INITIALIZE,
+    target: '$target$',
+)]
+public function cmd$targetUpperCamel$Init(\Symfony\Component\Console\Input\InputInterface $input, \Consolidation\AnnotatedCommand\AnnotationData $annotationData): void
+{
+    $value = $input->getOption('some-option');
+    if (!$value) {
+        $input->setOption('some-option', $this->generateRandomOptionValue());
+    }
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_validate_target"
+              description="Annotated command - hook - validate - command"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;app:foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(target))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::ARGUMENT_VALIDATOR,
+    target: '$target$',
+)]
+public function cmd$targetUpperCamel$Validate(\Consolidation\AnnotatedCommand\CommandData $commandData): void
+{
+    $END$$input = $commandData->input();
+    $password = $input->getOption('password');
+
+    if (strpbrk($password, '!;$`') === false) {
+        throw new \Exception("Your password MUST contain at least one of the characters ! ; ` or $, for no rational reason whatsoever.");
+    }
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_pre_command_target"
+              description="Annotated command - hook - pre-command"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(target, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::PRE_COMMAND_HOOK,
+    target: '$target$',
+)]
+public function cmd$targetUpperCamel$PreExecute(\Consolidation\AnnotatedCommand\CommandData $commandData): void
+{
+    $END$// Do something before some:command
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_post_command_target"
+              description="Annotated command - hook - post-command"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(target, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::POST_COMMAND_HOOK,
+    target: '$target$',
+)]
+public function cmd$targetUpperCamel$PostExecute(?\Robo\Result $result, \Consolidation\AnnotatedCommand\CommandData $commandData)
+{
+    $END$// Do something after some:command
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_process_target"
+              description="Annotated command - hook - process"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(target, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::PROCESS_RESULT,
+    target: '$target$',
+)]
+public function cmd$targetUpperCamel$Process($result, \Consolidation\AnnotatedCommand\CommandData $commandData): void
+{
+    $END$if ($result instanceof MyInterimType) {
+        $result = $this->converter->convert($result);
+    }
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_alter_target"
+              description="Annotated command - hook - alter"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;app:foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(target))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::ALTER_RESULT,
+    target: '$target$',
+)]
+public function cmd$targetUpperCamel$Alter(mixed $result, \Consolidation\AnnotatedCommand\CommandData $commandData): mixed
+{
+    $format = $commandData->input()->getOption('format');
+    $data = $result instanceof CommandResult
+        ? $result->getOutputData()
+        : null;
+
+    $hasToBeRows = in_array($format, ['table', 'csv']);
+    if ($hasToBeRows && is_array($data)) {
+        $converter = $this->getContainer()->get('app.foo.converter');
+        $rows = new RowsOfFields($converter->getTableRows($data));
+        $result->setOutputData($rows);
+    }
+
+    return $result;
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_command_do"
+              shortcut="TAB"
+              description="Annotated command - command which do something (alters the application state)"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression=""
+                  defaultValue="&quot;my:obj1:action1&quot;"
+                  alwaysStopAt="true" />
+        <variable name="nameUpperCamel"
+                  expression="capitalize(camelCase(name))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Command(
+    name: '$name$',
+)]
+//ac_attribute_$END$
+public function cmd$nameUpperCamel$Execute(): \Robo\Contract\TaskInterface
+{
+    $cb = $this->collectionBuilder();
+    $cb->addTaskList($this->getAction01TaskList($cb));
+
+    return $cb;
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_on_event_target"
+              description="Annotated command - hook - on-event"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="target"
+                  expression=""
+                  defaultValue="&quot;foo:bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="targetUpperCamel"
+                  expression="capitalize(camelCase(target))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::ON_EVENT,
+    target: '$target$',
+)]
+public function onEvent$targetUpperCamel$($END$) {
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_validate_selector"
+              description="Annotated command - hook - validate - tag"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="selector"
+                  expression=""
+                  defaultValue="myTag01"
+                  alwaysStopAt="true" />
+        <variable name="selectorUpperCamel"
+                  expression="capitalize(camelCase(selector))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::ARGUMENT_VALIDATOR,
+    selector: '$selector$',
+)]
+public function onHookValidate$selectorUpperCamel$(\Consolidation\AnnotatedCommand\CommandData $commandData): void
+{
+    $argNames = explode(
+      ',',
+      $commandData->annotationData()->get('$selector$'),
+    );
+
+    $input = $commandData->input();
+    foreach ($argNames as $argName) {
+      $input->setArgument(
+        $argName,
+        $this->myTransform01($input->getArgument($argName)),
+      );
+    }
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_process_selector"
+              description="Annotated command - hook - process"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="selector"
+                  expression=""
+                  defaultValue="&quot;@my-tag-01&quot;"
+                  alwaysStopAt="true" />
+        <variable name="selectorUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(selector, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::PROCESS_RESULT,
+    selector: '$selector$',
+)]
+public function onHookProcess$selectorUpperCamel$($result, \Consolidation\AnnotatedCommand\CommandData $commandData): void
+{
+    $END$if ($result instanceof MyInterimType) {
+        $result = $this->conveerter->convert($result);
+    }
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_pre_command_selector"
+              description="Annotated command - hook - pre-command"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="selector"
+                  expression=""
+                  defaultValue="&quot;@my-tag-01&quot;"
+                  alwaysStopAt="true" />
+        <variable name="selectorUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(selector, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::PRE_COMMAND_HOOK,
+    selector: '$selector$',
+)]
+public function onHookPreExecute$selectorUpperCamel$(\Consolidation\AnnotatedCommand\CommandData $commandData): void
+{
+    $END$// Do something before some:command
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_post_command_selector"
+              description="Annotated command - hook - post-command"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="selector"
+                  expression=""
+                  defaultValue="&quot;@my-tag-01&quot;"
+                  alwaysStopAt="true" />
+        <variable name="selectorUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(selector, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::POST_COMMAND_HOOK,
+    selector: '$selector$',
+)]
+public function onHookPostExecute$selectorUpperCamel$(?\Robo\Result $result, \Consolidation\AnnotatedCommand\CommandData $commandData): void
+{
+    $END$// Do something after some:command
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_option_selector"
+              description="Annotated command - hook - option"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="selector"
+                  expression=""
+                  defaultValue="&quot;@my-tag-01&quot;"
+                  alwaysStopAt="true" />
+        <variable name="selectorUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(selector, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::OPTION_HOOK,
+    selector: '$selector$',
+)]
+public function onHookOption$selectorUpperCamel$(\Symfony\Component\Console\Command\Command $command, \Consolidation\AnnotatedCommand\AnnotationData $annotationData): void
+{
+    $END$$command->addOption(
+        'dynamic',
+        '',
+        InputOption::VALUE_NONE,
+        'Option added by @hook option some:command',
+    );
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_interact_selector"
+              description="Annotated command - hook - interact"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="selector"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="selectorUpperCamel"
+                  expression="capitalize(camelCase(regularExpression(selector, &quot;@&quot;, &quot;&quot;)))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::INTERACT,
+    selector: '$selector$',
+)]
+public function onHookInteract$selectorUpperCamel$(
+    \Symfony\Component\Console\Input\InputInterface $input,
+    \Symfony\Component\Console\Output\OutputInterface $output,
+    \Consolidation\AnnotatedCommand\AnnotationData $annotationData,
+): void {
+    $END$$io = new \Symfony\Component\Console\Style\SymfonyStyle(
+        $input,
+        $output instanceof ConsoleOutputInterface ? $output->getErrorOutput() : $output,
+    );
+
+    // If the user did not specify a password, then prompt for one.
+    $password = $input->getOption('password');
+    if (empty($password)) {
+        $password = $io->askHidden("Enter a password:", function ($value) { return $value; });
+        $input->setOption('password', $password);
+    }
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_init_selector"
+              description="Annotated command - hook - init"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="selector"
+                  expression=""
+                  defaultValue="&quot;app-foo-bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="selectorUpperCamel"
+                  expression="capitalize(camelCase(selector))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::INITIALIZE,
+    target: '$selector$',
+)]
+public function onHookInit$selectorUpperCamel$(\Symfony\Component\Console\Input\InputInterface $input, \Consolidation\AnnotatedCommand\AnnotationData $annotationData): void
+{
+    $value = $input->getOption('some-option');
+    if (!$value) {
+        $input->setOption('some-option', $this->generateRandomOptionValue());
+    }
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_hook_alter_selector"
+              description="Annotated command - hook - alter"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="selector"
+                  expression=""
+                  defaultValue="&quot;@foo-bar&quot;"
+                  alwaysStopAt="true" />
+        <variable name="selectorUpperCamel"
+                  expression="capitalize(camelCase(selector))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Hook(
+    type: \Consolidation\AnnotatedCommand\Hooks\HookManager::ALTER_RESULT,
+    selector: '$selector$',
+)]
+public function onHookAlter$selectorUpperCamel$(mixed $result, \Consolidation\AnnotatedCommand\CommandData $commandData): mixed
+{
+    $format = $commandData->input()->getOption('format');
+    $data = $result instanceof CommandResult
+        ? $result->getOutputData()
+        : null;
+
+    $hasToBeRows = in_array($format, ['table', 'csv']);
+    if ($hasToBeRows && is_array($data)) {
+        $converter = $this->getContainer()->get('app.foo.converter');
+        $rows = new RowsOfFields($converter->getTableRows($data));
+        $result->setOutputData($rows);
+    }
+
+    return $result;
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_command_fetch"
+              description="Annotated command - command which fetch some data"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression=""
+                  defaultValue="&quot;my:object1:list&quot;"
+                  alwaysStopAt="true" />
+        <variable name="nameUpperCamel"
+                  expression="capitalize(camelCase(name))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Command(
+    name: '$name$',
+)]
+//ac_attribute_$END$
+public function cmd$nameUpperCamel$Execute(
+    array $options = [
+        'format' => 'yaml',
+    ],
+): \Consolidation\AnnotatedCommand\CommandResult {
+    $exitCode = 0;
+    $data = [];
+
+    return \Consolidation\AnnotatedCommand\CommandResult::dataWithExitCode($data, $exitCode);
+}
+]]>
+        </value>
+    </template>
+    <template name="ac_attribute_command"
+              description="Annotated command - Attribute - Command"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Command(
+    name: '$name$',
+)]
+//ac_attribute_$END$
+]]>
+        </value>
+    </template>
+    <template name="ac_attribute_argument"
+              description="Annotated command - Attribute - Argument"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="description"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Argument(
+    name: '$name$',
+    description: '$description$',
+)]
+//ac_attribute_$END$
+]]>
+        </value>
+    </template>
+    <template name="ac_attribute_help"
+              description="Annotated command - Attribute - Help"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="description"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="synopsis"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Help(
+    description: '$description$',
+    synopsis: <<< 'TEXT'
+        $synopsis$
+        TEXT,
+)]
+//ac_attribute_$END$
+]]>
+        </value>
+    </template>
+    <template name="ac_attribute_format"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Interface Member"
+                    value="true" />
+            <option name="PHP Method Expression"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\FieldLabels(
+  labels: [
+    'id' => 'ID',
+    'label' => 'Label',
+  ],
+)]
+#[Cli\DefaultTableFields(
+  fields: [
+    'id',
+    'label',
+  ],
+)]
+#[Cli\FilterDefaultField(field: 'id')]
+]]>
+        </value>
+    </template>
+    <template name="ac_attribute_option"
+              description="Annotated command - Attribute - Option"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="description"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Option(
+    name: '$name$',
+    description: '$description$',
+)]
+//ac_attribute_$END$
+]]>
+        </value>
+    </template>
+    <template name="ac_use_attributes"
+              description="use Attributes as Cli;"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+use Consolidation\AnnotatedCommand\Attributes as Cli;
+]]>
+        </value>
+    </template>
+</templateSet>

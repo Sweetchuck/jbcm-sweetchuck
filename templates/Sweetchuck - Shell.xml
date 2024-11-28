@@ -1,0 +1,351 @@
+<templateSet group="Sweetchuck - Shell">
+    <template name="if"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="Bash"
+                    value="true" />
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+if [[ $END$ ]]; then
+        $SELECTION$
+fi
+]]>
+        </value>
+    </template>
+    <template name="until"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="Bash"
+                    value="true" />
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+until [ $END$ ]; do
+        $SELECTION$
+done
+]]>
+        </value>
+    </template>
+    <template name="for_array"
+              description="for - array"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="item"
+                  expression=""
+                  defaultValue="&quot;item&quot;"
+                  alwaysStopAt="true" />
+        <variable name="array"
+                  expression="completeSmart()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Bash"
+                    value="true" />
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+for $item$ in "${$array$[@]}"; do
+        $SELECTION$
+done
+]]>
+        </value>
+    </template>
+    <template name="lines_into_file_cat"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="EOT"
+                  expression="enum(&quot;TEXT&quot;, &quot;EOT&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="fileName"
+                  expression=""
+                  defaultValue="&quot;my-dst.txt&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Bash"
+                    value="true" />
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+cat <<$EOT$ >> $fileName$
+$END$line 1
+line 2
+$EOT$
+]]>
+        </value>
+    </template>
+    <template name="if_file_exists"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="not"
+                  expression="enum(&quot;&quot;, &quot; !&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="varName"
+                  expression=""
+                  defaultValue="&quot;fileName&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Bash"
+                    value="true" />
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+if [[$not$ -f "${$varName$}" ]]; then
+        $SELECTION$
+fi
+]]>
+        </value>
+    </template>
+    <template name="array_command_output"
+              description="ZSH - Defines an array from command output lines"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="command"
+                  expression=""
+                  defaultValue="&quot;ls -la&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+("${(@f)$($command$)}")
+]]>
+        </value>
+    </template>
+    <template name="docc"
+              description="DocComment"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="Bash"
+                    value="true" />
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+##
+# $SELECTION$$END$
+##
+]]>
+        </value>
+    </template>
+    <template name="arg_validation_required"
+              description="Bash - Argument validation - required"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="arg_name"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="arg_index"
+                  expression="enum(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+local $arg_name$="${$arg_index$}"
+: "${$arg_name$:?'argument is required'}"
+]]>
+        </value>
+    </template>
+    <template name="echo_stdError"
+              description="Write to the stdError"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="Bash"
+                    value="true" />
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+echo 1>&2 $SELECTION$$END$
+]]>
+        </value>
+    </template>
+    <template name="local_var_command"
+              description="local variable to store command stdOutput"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="var_name"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+local $var_name$
+$var_name$="$($END$)"
+]]>
+        </value>
+    </template>
+    <template name="loop_stdOutput_variable_bash"
+              description="Loop over stdOutput lines which are stored in a variable – BASH"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="array"
+                  expression=""
+                  defaultValue="&quot;fileNames&quot;"
+                  alwaysStopAt="true" />
+        <variable name="index"
+                  expression="regularExpression(array, &quot;.$&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="Bash"
+                    value="true" />
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+local $array$
+declare -a $array$
+$array$=("$(find . -name '*.txt')")
+while read -r $index$ && test "$${$index$}" != ''; do
+        # @todo Do something.
+        echo "\$${$index$} = $${$index$}"
+        $SELECTION$
+done <<< "${$array$[@]}"
+]]>
+        </value>
+    </template>
+    <template name="local_var_herenow"
+              description="local variable to store milti-line string"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="var_name"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <variable name="delimiter"
+                  expression="enum(&quot;TXT&quot;, &quot;PHP&quot;, &quot;SQL&quot;, &quot;XML&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+local $var_name$
+$var_name$=$(cat <<'$delimiter$'
+my long string
+$delimiter$
+)
+]]>
+        </value>
+    </template>
+    <template name="lines_into_file_ansic"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="fileName"
+                  expression=""
+                  defaultValue="&quot;my-dst.txt&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="Bash"
+                    value="true" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+$'$END$first line\n\
+second line\n\
+third line\n\
+' > $fileName$
+
+]]>
+        </value>
+    </template>
+    <template name="loop_stdOutput_direct_bash"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="index"
+                  expression=""
+                  defaultValue="&quot;index&quot;"
+                  alwaysStopAt="true" />
+        <variable name="command"
+                  expression=""
+                  defaultValue="&quot;cat ./my.txt&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="SHELL_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+while read -r $index$
+do
+        echo "--- ${$index$} ---"
+done <<< "$($command$)"
+]]>
+        </value>
+    </template>
+</templateSet>

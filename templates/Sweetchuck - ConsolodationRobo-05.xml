@@ -1,0 +1,84 @@
+<templateSet group="Sweetchuck - ConsolodationRobo-05">
+    <template name="robo_task_code"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="terminator"
+                  expression="enum(&quot;,&quot;, &quot;;&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+function (RoboState $state) use ($foo): int {
+  // $END$use Robo\State\Data as RoboState;
+  return 0;
+}$terminator$
+]]>
+        </value>
+    </template>
+    <template name="robo_task_foreach_withBuilder"
+              shortcut="TAB"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+$taskForEach = $this->taskForEach();
+$taskForEach
+        ->iterationMessage('Something happening with {key}')
+        ->deferTaskConfiguration('setIterable', '<KEY_FROM_STATE>')
+        ->withBuilder(function (\Robo\Collection\CollectionBuilder $builder, string $key, $item) use ($taskForEach): void {
+                $state = $taskForEach->getState();
+
+                $builder
+                        ->addTask(
+                                $this
+                                        ->taskExecStack()
+                                        ->exec("echo 'do something'")
+                        );
+        });
+]]>
+        </value>
+    </template>
+    <template name="robo_callable_task_creator_method"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="methodName"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+            <option name="PHP Trait Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+protected function getTask$methodName$(\Robo\Contract\TaskInterface $reference): \Robo\Contract\TaskInterface {
+  return new \Robo\Collection\CallableTask(
+    // use Robo\State\Data as RoboState;
+    function (RoboState $state): int {
+      // @todo Do something.$END$
+      return 0;
+    },
+    $reference,
+  );
+}
+]]>
+        </value>
+    </template>
+</templateSet>

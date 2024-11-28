@@ -1,0 +1,270 @@
+<templateSet group="Sweetchuck - gettext">
+    <template name="msgid_normal_single_line"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+msgid "$END$"
+msgstr ""
+]]>
+        </value>
+    </template>
+    <template name="msgid_init"
+              description="Initial metadata"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="date"
+                  expression="date()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="time"
+                  expression="time()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="tzDirection"
+                  expression="enum(&quot;+&quot;, &quot;-&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="tzDiff"
+                  expression="enum(&quot;0000&quot;, &quot;0100&quot;, &quot;0200&quot;, &quot;0300&quot;, &quot;0400&quot;, &quot;0500&quot;, &quot;0600&quot;, &quot;0700&quot;, &quot;0800&quot;, &quot;0900&quot;, &quot;1000&quot;, &quot;1100&quot;, &quot;1200&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+msgid ""
+msgstr ""
+"Project-Id-Version: $END$My Project (1.0.0)\n"
+"POT-Creation-Date: $date$ $time$$tzDirection$$tzDiff$\n"
+"PO-Revision-Date: $date$ $time$$tzDirection$$tzDiff$\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Language-Team: Hungarian <my-project.l10n+hu@example.com>\n"
+"Last-Translator: Me <me.myself@example.com>\n"
+"X-Generator: Lokalize 19.12.2\n"
+]]>
+        </value>
+    </template>
+    <template name="msgid_plural_multi_line"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+msgid ""
+"$END$Line one\n"
+"Line two\n"
+msgid_plural ""
+"Line one\n"
+"Line two\n"
+msgstr[0] ""
+"Line one\n"
+"Line two\n"
+msgstr[1] ""
+"Line one\n"
+"Line two\n"
+]]>
+        </value>
+    </template>
+    <template name="msgid_plural_single_line"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+msgid "$END$"
+msgid_plural ""
+msgstr[0] ""
+msgstr[1] ""
+]]>
+        </value>
+    </template>
+    <template name="msgid_normal_multi_line"
+              description=""
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+msgid ""
+"$END\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
+]]>
+        </value>
+    </template>
+</templateSet>

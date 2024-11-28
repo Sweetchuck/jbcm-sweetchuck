@@ -1,0 +1,68 @@
+<templateSet group="Sweetchuck - GitHub">
+    <template name="badge__github"
+              description="Add GitHub Actions badge"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="repoPath"
+                  expression="regularExpression(regularExpression(filePath(), &quot;.+?/([^/]+)/([^/]+)/([^/]+)$&quot;, &quot;$1/$2&quot;), &quot;\-[0-9]+\.x$&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="workflow"
+                  expression="enum(&quot;qa&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="workflowHuman"
+                  expression="capitalize(workflow)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="branch"
+                  expression="enum(regularExpression(filePath(), &quot;.+?-([0-9]+\.x)/.+&quot;, &quot;$1&quot;), &quot;1.x&quot;, &quot;2.x&quot;, &quot;3.x&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+[![$workflowHuman$](https://github.com/$repoPath$/actions/workflows/$workflow$.yml/badge.svg?branch=$branch$)](https://github.com/$repoPath$/actions/workflows/$workflow$.yml)
+]]>
+        </value>
+    </template>
+</templateSet>

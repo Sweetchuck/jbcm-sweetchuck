@@ -1,0 +1,50 @@
+<templateSet group="Sweetchuck - PHPUnit-11">
+    <template name="unit_test_method_with_data_provider"
+              description="Test method with data provider"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression="clipboard()"
+                  defaultValue="SELECTION"
+                  alwaysStopAt="true" />
+        <variable name="nameUpperCamel"
+                  expression="capitalize(camelCase(name))"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="class"
+                  expression="regularExpression(fileNameWithoutExtension(), &quot;Test$&quot;, &quot;&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @return array<string, mixed>
+ */
+public static function cases$nameUpperCamel$(): array
+{
+    return [
+        'basic' => [
+            'expected' => 'a',
+            'arg1' => 'b',
+        ],
+    ];
+}
+
+#[\PHPUnit\Framework\Attributes\DataProvider('cases$nameUpperCamel$')]
+public function test$nameUpperCamel$(string $expected, string $arg1): void
+{
+    $subject = new $class$();
+    static::assertSame($expected, $subject->$name$($arg1));
+}
+]]>
+        </value>
+    </template>
+</templateSet>

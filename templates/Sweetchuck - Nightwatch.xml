@@ -1,0 +1,59 @@
+<templateSet group="Sweetchuck - Nightwatch">
+    <template name="nightwatch_testcase"
+              shortcut="SPACE"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression=""
+                  defaultValue="&quot;My description&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+'$name$': function (browser) {
+        browser.url(browser.launch_url);
+        $END$
+},
+]]>
+        </value>
+    </template>
+    <template name="nightwatch_finder"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+{
+        locateStrategy: nightwatch_finder_location$END$,
+        selector: 'foo',
+}
+]]>
+        </value>
+    </template>
+    <template name="nightwatch_finder_location"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression="enum(&quot;css selector&quot;, &quot;link text&quot;, &quot;partial link text&quot;, &quot;tag name&quot;, &quot;xpath&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JAVA_SCRIPT"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+'$name$'
+]]>
+        </value>
+    </template>
+</templateSet>

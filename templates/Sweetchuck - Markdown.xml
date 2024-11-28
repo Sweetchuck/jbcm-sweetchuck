@@ -1,0 +1,384 @@
+<templateSet group="Sweetchuck - Markdown">
+    <template name="code"
+              description="Code block"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="language"
+                  expression="enum(&quot;javascript&quot;, &quot;php&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+```$language$
+$SELECTION$
+```
+]]>
+        </value>
+    </template>
+    <template name="bold"
+              description="Bold"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+**$SELECTION$**
+]]>
+        </value>
+    </template>
+    <template name="link"
+              description="Link"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="url"
+                  expression="clipboard()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+[$SELECTION$]($url$)
+]]>
+        </value>
+    </template>
+    <template name="h"
+              description="Header"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="level"
+                  expression="enum(&quot;#&quot;, &quot;##&quot;, &quot;###&quot;, &quot;####&quot;, &quot;#####&quot;, &quot;######&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+$level$ $SELECTION$
+]]>
+        </value>
+    </template>
+    <template name="italic"
+              description="Italic"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+*$SELECTION$*
+]]>
+        </value>
+    </template>
+    <template name="bold_italic"
+              description="Bold + Italic"
+              toReformat="false"
+              toShortenFQNames="true">
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+***$SELECTION$***
+]]>
+        </value>
+    </template>
+    <template name="link_reference"
+              description="[foo]: https://example.com"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="url"
+                  expression="clipboard()"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HAML"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+[$SELECTION$]: $url$
+]]>
+        </value>
+    </template>
+</templateSet>

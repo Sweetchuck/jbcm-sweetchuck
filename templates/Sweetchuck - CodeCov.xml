@@ -1,0 +1,64 @@
+<templateSet group="Sweetchuck - CodeCov">
+    <template name="badge__codecov"
+              description="Add CodeCov badge"
+              toReformat="false"
+              toShortenFQNames="true">
+        <variable name="vendor"
+                  expression=""
+                  defaultValue="&quot;Sweetchuck&quot;"
+                  alwaysStopAt="true" />
+        <variable name="project"
+                  expression="regularExpression(filePath(), &quot;^.+?\/([^/]+)\/[^/]+$&quot;, &quot;$1&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="branch"
+                  expression="enum(&quot;1.x&quot;, &quot;2.x&quot;, &quot;3.x&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="ANY_OPENAPI_JSON_FILE"
+                    value="false" />
+            <option name="ANY_OPENAPI_YAML_FILE"
+                    value="false" />
+            <option name="CSS"
+                    value="false" />
+            <option name="CUCUMBER_FEATURE_FILE"
+                    value="false" />
+            <option name="GENERAL_JSON_FILE"
+                    value="false" />
+            <option name="GENERAL_YAML_FILE"
+                    value="false" />
+            <option name="HTML"
+                    value="false" />
+            <option name="HTTP_CLIENT_ENVIRONMENT"
+                    value="false" />
+            <option name="JAVA_SCRIPT"
+                    value="false" />
+            <option name="JSON"
+                    value="false" />
+            <option name="OTHER"
+                    value="true" />
+            <option name="PHP"
+                    value="false" />
+            <option name="REQUEST"
+                    value="false" />
+            <option name="SHELL_SCRIPT"
+                    value="false" />
+            <option name="SQL"
+                    value="false" />
+            <option name="Twig"
+                    value="false" />
+            <option name="TypeScript"
+                    value="false" />
+            <option name="Vue"
+                    value="false" />
+            <option name="XML"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+[![codecov](https://codecov.io/gh/$vendor$/$project$/branch/$branch$/graph/badge.svg?token=HSF16OGPyr)](https://app.codecov.io/gh/$vendor$/$project$/branch/$branch$)
+]]>
+        </value>
+    </template>
+</templateSet>

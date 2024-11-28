@@ -1,0 +1,154 @@
+<templateSet group="Sweetchuck - Behat-03 PHP">
+    <template name="behat_hook_after_scenario"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @AfterScenario
+ */
+public function hookAfterScenario(\Behat\Behat\Event\ScenarioEvent $event): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="behat_hook_after_step"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @AfterStep
+ */
+public static function hookAfterStep(\Behat\Behat\Event\StepEvent $event): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="behat_hook_after_suite"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @AfterSuite
+ */
+public static function hookAfterSuite(\Behat\Testwork\Hook\Scope\AfterSuiteScope $scope): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="behat_hook_before_feature"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @BeforeFeature
+ */
+public static function hookBeforeFeature(\Behat\Behat\Event\FeatureEvent $event): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="behat_hook_before_scenario"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @BeforeScenario
+ */
+public function hookBeforeScenario(\Behat\Behat\Event\ScenarioEvent $event): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="behat_hook_before_step"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @BeforeStep
+ */
+public static function hookBeforeStep(\Behat\Behat\Event\StepEvent $event): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="behat_hook_before_suite"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @BeforeSuite
+ */
+public static function hookBeforeSuite(\Behat\Testwork\Hook\Scope\BeforeSuiteScope $scope): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="behat_hook_after_feature"
+              description=""
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Class Member"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+/**
+ * @BeforeFeature
+ */
+public static function hookAfterFeature(\Behat\Behat\Event\FeatureEvent $event): void {
+  $END$
+}
+]]>
+        </value>
+    </template>
+</templateSet>
