@@ -323,10 +323,8 @@ public function cmd$targetUpperCamel$Alter(mixed $result, \Consolidation\Annotat
         </context>
         <value>
 <![CDATA[
-#[Cli\Command(
-    name: '$name$',
-)]
-//ac_attribute_$END$
+#[Cli\Command(name: '$name$')]
+//ac_attribute_help$END$
 public function cmd$nameUpperCamel$Execute(): \Robo\Contract\TaskInterface
 {
     $cb = $this->collectionBuilder();
@@ -700,10 +698,8 @@ public function onHookAlter$selectorUpperCamel$(mixed $result, \Consolidation\An
         </context>
         <value>
 <![CDATA[
-#[Cli\Command(
-    name: '$name$',
-)]
-//ac_attribute_$END$
+#[Cli\Command( name: '$name$')]
+//ac_attribute_help$END$
 public function cmd$nameUpperCamel$Execute(
     array $options = [
         'format' => 'yaml',
@@ -735,10 +731,8 @@ public function cmd$nameUpperCamel$Execute(
         </context>
         <value>
 <![CDATA[
-#[Cli\Command(
-    name: '$name$',
-)]
-//ac_attribute_$END$
+#[Cli\Command(name: '$name$')]
+$END$//ac_attribute_
 ]]>
         </value>
     </template>
@@ -778,11 +772,11 @@ public function cmd$nameUpperCamel$Execute(
               toShortenFQNames="true">
         <variable name="description"
                   expression=""
-                  defaultValue=""
+                  defaultValue="&quot;Short description.&quot;"
                   alwaysStopAt="true" />
         <variable name="synopsis"
                   expression=""
-                  defaultValue=""
+                  defaultValue="&quot;Long description\n Line02.&quot;"
                   alwaysStopAt="true" />
         <context>
             <option name="PHP"
@@ -877,6 +871,36 @@ public function cmd$nameUpperCamel$Execute(
         <value>
 <![CDATA[
 use Consolidation\AnnotatedCommand\Attributes as Cli;
+]]>
+        </value>
+    </template>
+    <template name="ac_attribute_usage"
+              description="Annotated command - Attribute - Usage"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="name"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="description"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP"
+                    value="true" />
+            <option name="PHP Comment"
+                    value="false" />
+            <option name="PHP String Literal"
+                    value="false" />
+        </context>
+        <value>
+<![CDATA[
+#[Cli\Usage(
+    name: '$name$',
+    description: '$description$',
+)]
+//ac_attribute_$END$
 ]]>
         </value>
     </template>
