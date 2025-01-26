@@ -38,6 +38,7 @@ public static function cases$nameUpperCamel$(): array
     ];
 }
 
+#[\PHPUnit\Framework\Attributes\Test]
 #[\PHPUnit\Framework\Attributes\DataProvider('cases$nameUpperCamel$')]
 public function test$nameUpperCamel$(string $expected, string $arg1): void
 {

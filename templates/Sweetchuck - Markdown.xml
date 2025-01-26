@@ -4,7 +4,7 @@
               toReformat="false"
               toShortenFQNames="true">
         <variable name="language"
-                  expression="enum(&quot;javascript&quot;, &quot;php&quot;)"
+                  expression="enum(&quot;javascript&quot;, &quot;php&quot;, &quot;bash&quot;, &quot;yaml&quot;, &quot;json&quot;)"
                   defaultValue=""
                   alwaysStopAt="true" />
         <context>

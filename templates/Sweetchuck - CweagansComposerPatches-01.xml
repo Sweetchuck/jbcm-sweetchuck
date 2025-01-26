@@ -2,8 +2,7 @@
     <template name="patch"
               description=""
               toReformat="true"
-              toShortenFQNames="true"
-              deactivated="true">
+              toShortenFQNames="true">
         <variable name="vendor"
                   expression=""
                   defaultValue="&quot;drupal&quot;"

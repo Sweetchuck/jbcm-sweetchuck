@@ -59,4 +59,24 @@
 ]]>
         </value>
     </template>
+    <template name="kvv"
+              description="key: []"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="key"
+                  expression=""
+                  defaultValue="&quot;foo&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="JSON"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+"$key$": [
+  $END$
+]
+]]>
+        </value>
+    </template>
 </templateSet>

@@ -1,6 +1,6 @@
 <templateSet group="Sweetchuck - PHP">
-    <template name="fore"
-              description="foreach(iterable_expr as $value) {...}"
+    <template name="foreach_value"
+              description="foreach(iterable as $value)"
               toReformat="true"
               toShortenFQNames="true">
         <variable name="iterable"
@@ -25,12 +25,12 @@ foreach ($iterable$ as $value$) {
 ]]>
         </value>
     </template>
-    <template name="forek"
-              description="foreach(iterable_expr as $key =&gt; $value) {...}"
+    <template name="foreach_both"
+              description="foreach(iterable as $key =&gt; $value)"
               toReformat="true"
               toShortenFQNames="true">
         <variable name="iterable"
-                  expression="phpVar"
+                  expression="completeSmart()"
                   defaultValue=""
                   alwaysStopAt="true" />
         <variable name="key"
@@ -84,7 +84,7 @@ throw new \$END$Exception();
                   defaultValue=""
                   alwaysStopAt="true" />
         <variable name="returnTypeHint"
-                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  expression="enum(&quot;void&quot;, &quot;static&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;int&quot;, &quot;float&quot;, &quot;array&quot;, &quot;callable&quot;, &quot;iterable&quot;)"
                   defaultValue=""
                   alwaysStopAt="true" />
         <context>
@@ -95,7 +95,7 @@ throw new \$END$Exception();
         </context>
         <value>
 <![CDATA[
-public function $NAME$($PARAMETERS$)$returnTypeHint$ {
+public function $NAME$($PARAMETERS$): $returnTypeHint$ {
   $END$
 }
 ]]>
@@ -114,7 +114,7 @@ public function $NAME$($PARAMETERS$)$returnTypeHint$ {
                   defaultValue=""
                   alwaysStopAt="true" />
         <variable name="returnTypeHint"
-                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  expression="enum(&quot;void&quot;, &quot;static&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;int&quot;, &quot;float&quot;, &quot;array&quot;, &quot;callable&quot;, &quot;iterable&quot;)"
                   defaultValue=""
                   alwaysStopAt="true" />
         <context>
@@ -125,7 +125,7 @@ public function $NAME$($PARAMETERS$)$returnTypeHint$ {
         </context>
         <value>
 <![CDATA[
-public static function $NAME$($PARAMETERS$)$returnTypeHint$ {
+public static function $NAME$($PARAMETERS$): $returnTypeHint$ {
   $END$
 }
 ]]>
@@ -144,7 +144,7 @@ public static function $NAME$($PARAMETERS$)$returnTypeHint$ {
                   defaultValue=""
                   alwaysStopAt="true" />
         <variable name="returnTypeHint"
-                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  expression="enum(&quot;void&quot;, &quot;static&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;int&quot;, &quot;float&quot;, &quot;array&quot;, &quot;callable&quot;, &quot;iterable&quot;)"
                   defaultValue=""
                   alwaysStopAt="true" />
         <context>
@@ -155,7 +155,7 @@ public static function $NAME$($PARAMETERS$)$returnTypeHint$ {
         </context>
         <value>
 <![CDATA[
-protected function $NAME$($PARAMETERS$)$returnTypeHint$ {
+protected function $NAME$($PARAMETERS$): $returnTypeHint$ {
   $END$
 }
 ]]>
@@ -174,7 +174,7 @@ protected function $NAME$($PARAMETERS$)$returnTypeHint$ {
                   defaultValue=""
                   alwaysStopAt="true" />
         <variable name="returnTypeHint"
-                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  expression="enum(&quot;void&quot;, &quot;static&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;int&quot;, &quot;float&quot;, &quot;array&quot;, &quot;callable&quot;, &quot;iterable&quot;)"
                   defaultValue=""
                   alwaysStopAt="true" />
         <context>
@@ -185,7 +185,7 @@ protected function $NAME$($PARAMETERS$)$returnTypeHint$ {
         </context>
         <value>
 <![CDATA[
-protected static function $NAME$($PARAMETERS$)$returnTypeHint$ {
+protected static function $NAME$($PARAMETERS$): $returnTypeHint$ {
   $END$
 }
 ]]>
@@ -204,7 +204,7 @@ protected static function $NAME$($PARAMETERS$)$returnTypeHint$ {
                   defaultValue=""
                   alwaysStopAt="true" />
         <variable name="returnTypeHint"
-                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  expression="enum(&quot;void&quot;, &quot;static&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;int&quot;, &quot;float&quot;, &quot;array&quot;, &quot;callable&quot;, &quot;iterable&quot;)"
                   defaultValue=""
                   alwaysStopAt="true" />
         <context>
@@ -215,7 +215,7 @@ protected static function $NAME$($PARAMETERS$)$returnTypeHint$ {
         </context>
         <value>
 <![CDATA[
-private function $NAME$($PARAMETERS$)$returnTypeHint$ {
+private function $NAME$($PARAMETERS$): $returnTypeHint$ {
   $END$
 }
 ]]>
@@ -234,7 +234,7 @@ private function $NAME$($PARAMETERS$)$returnTypeHint$ {
                   defaultValue=""
                   alwaysStopAt="true" />
         <variable name="returnTypeHint"
-                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  expression="enum(&quot;void&quot;, &quot;static&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;int&quot;, &quot;float&quot;, &quot;array&quot;, &quot;callable&quot;, &quot;iterable&quot;)"
                   defaultValue=""
                   alwaysStopAt="true" />
         <context>
@@ -245,7 +245,7 @@ private function $NAME$($PARAMETERS$)$returnTypeHint$ {
         </context>
         <value>
 <![CDATA[
-private static function $NAME$($PARAMETERS$)$returnTypeHint$ {
+private static function $NAME$($PARAMETERS$): $returnTypeHint$ {
   $END$
 }
 ]]>
@@ -452,7 +452,7 @@ else {
 ]]>
         </value>
     </template>
-    <template name="ifc"
+    <template name="if_checker"
               description=""
               toReformat="true"
               toShortenFQNames="true">
@@ -498,7 +498,7 @@ if ($negate$$checker$($END$)) {
 ]]>
         </value>
     </template>
-    <template name="while"
+    <template name="while_body"
               description="while"
               toReformat="true"
               toShortenFQNames="true">
@@ -515,7 +515,7 @@ if ($negate$$checker$($END$)) {
         <value>
 <![CDATA[
 while ($condition$) {
-  $END$
+  $END$$SELECTION$
 }
 ]]>
         </value>
@@ -554,38 +554,17 @@ for ($index$ = 0; $index$ < count($countable$); $index$++) {
                   expression=""
                   defaultValue=""
                   alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
         <value>
 <![CDATA[
 elseif ($condition$) {
   $END$$SELECTION$
 }
-]]>
-        </value>
-    </template>
-    <template name="@par"
-              description="PHPDoc @param"
-              toReformat="true"
-              toShortenFQNames="true">
-        <variable name="type"
-                  expression="enum(&quot;array&quot;, &quot;int&quot;, &quot;float&quot;, &quot;double&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;object&quot;)"
-                  defaultValue=""
-                  alwaysStopAt="true" />
-        <variable name="variable"
-                  expression=""
-                  defaultValue="&quot;ctrl_space&quot;"
-                  alwaysStopAt="true" />
-        <variable name="description"
-                  expression=""
-                  defaultValue="&quot;Some informative description.&quot;"
-                  alwaysStopAt="true" />
-        <context>
-            <option name="PHP Comment"
-                    value="true" />
-        </context>
-        <value>
-<![CDATA[
-@param $type$ $$$variable$
- *   $description$
 ]]>
         </value>
     </template>
@@ -681,34 +660,6 @@ catch (\Throwable $exception) {
 ]]>
         </value>
     </template>
-    <template name="func"
-              description="New function"
-              toReformat="true"
-              toShortenFQNames="true">
-        <variable name="name"
-                  expression="firstWord(fileNameWithoutExtension())"
-                  defaultValue=""
-                  alwaysStopAt="true" />
-        <variable name="parameters"
-                  expression=""
-                  defaultValue=""
-                  alwaysStopAt="true" />
-        <context>
-            <option name="PHP Class Member"
-                    value="true" />
-            <option name="PHP Expression"
-                    value="true" />
-            <option name="PHP Statement"
-                    value="true" />
-        </context>
-        <value>
-<![CDATA[
-function $name$($parameters$): void {
-  $END$
-}
-]]>
-        </value>
-    </template>
     <template name="rett"
               description="Return TRUE;"
               toReformat="true"
@@ -754,24 +705,6 @@ return FALSE;
         <value>
 <![CDATA[
 return NULL;
-]]>
-        </value>
-    </template>
-    <template name="inh"
-              description="PhpDoc - @inheritdoc inline"
-              toReformat="true"
-              toShortenFQNames="true">
-        <context>
-            <option name="PHP Class Member"
-                    value="true" />
-            <option name="PHP Interface Member"
-                    value="true" />
-        </context>
-        <value>
-<![CDATA[
-/**
- * {@inheritdoc}
- */
 ]]>
         </value>
     </template>
@@ -871,7 +804,7 @@ return new static(
         </context>
         <value>
 <![CDATA[
-$visibility$ $typeHint$ $$$name$;
+$visibility$ $typeHint$ $$$name$$END$;
 ]]>
         </value>
     </template>
@@ -892,29 +825,6 @@ $visibility$ $typeHint$ $$$name$;
         <value>
 <![CDATA[
 return $var$;
-]]>
-        </value>
-    </template>
-    <template name="@method_getset"
-              description="PHPDoc @method"
-              toReformat="true"
-              toShortenFQNames="true">
-        <variable name="type"
-                  expression="enum(&quot;array&quot;, &quot;int&quot;, &quot;float&quot;, &quot;double&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;object&quot;)"
-                  defaultValue=""
-                  alwaysStopAt="true" />
-        <variable name="name"
-                  expression="capitalize(camelCase(SELECTION))"
-                  defaultValue=""
-                  alwaysStopAt="true" />
-        <context>
-            <option name="PHP Comment"
-                    value="true" />
-        </context>
-        <value>
-<![CDATA[
-@method $type$ get$name$()
- * @method $this set$name$($type$ $value): static
 ]]>
         </value>
     </template>
@@ -1010,7 +920,7 @@ match ($subject$) {
                   defaultValue=""
                   alwaysStopAt="true" />
         <variable name="returnTypeHint"
-                  expression="enum(&quot;&quot;, &quot;: void&quot;, &quot;: static&quot;, &quot;: string&quot;, &quot;: bool&quot;, &quot;: int&quot;, &quot;: float&quot;, &quot;: array&quot;, &quot;: callable&quot;: &quot;: iterable&quot;)"
+                  expression="enum(&quot;void&quot;, &quot;static&quot;, &quot;string&quot;, &quot;bool&quot;, &quot;int&quot;, &quot;float&quot;, &quot;array&quot;, &quot;callable&quot;: &quot;iterable&quot;)"
                   defaultValue=""
                   alwaysStopAt="true" />
         <context>
@@ -1021,7 +931,7 @@ match ($subject$) {
         </context>
         <value>
 <![CDATA[
-$visibility$ function $NAME$($PARAMETERS$)$returnTypeHint$ {
+$visibility$ function $NAME$($PARAMETERS$): $returnTypeHint$ {
   $END$
 }
 ]]>
@@ -1067,6 +977,156 @@ for ($index$ = count($countable$) - 1; $index$ >= 0; $index$--) {
 <![CDATA[
 if ($END$$SELECTION$) {
 }
+]]>
+        </value>
+    </template>
+    <template name="foreach_key"
+              description="foreach (array_keys(iterable) as $key)"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="iterable"
+                  expression="phpVar"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="key"
+                  expression="phpSuggestVariableName()"
+                  defaultValue="&quot;$key&quot;"
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+foreach (array_keys($iterable$) as $key$) {
+  $END$$SELECTION$
+}
+]]>
+        </value>
+    </template>
+    <template name="while_condition"
+              description="while"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+while ($SELECTION$) {
+  $END$
+}
+]]>
+        </value>
+    </template>
+    <template name="do_while_body"
+              description="do {} while ()"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="condition"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+do {
+  $END$$SELECTION$
+} while ($condition$);
+]]>
+        </value>
+    </template>
+    <template name="do_while_condition"
+              description="do {} while ()"
+              toReformat="true"
+              toShortenFQNames="true">
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+do {
+  $END$
+} while ($SELECTION$);
+]]>
+        </value>
+    </template>
+    <template name="func_classic"
+              description="static function () {}"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="parameters"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnType"
+                  expression="enum(&quot;bool&quot;, &quot;string&quot;, &quot;int&quot;, &quot;array&quot;, &quot;float&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression="enum(&quot;;&quot;, &quot;,&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Method Expression"
+                    value="true" />
+            <option name="PHP Method Statement"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+static function ($parameters$) use ($x): $returnType$ {
+        $END$
+}$terminator$
+]]>
+        </value>
+    </template>
+    <template name="func_arrow"
+              description="fn () =&gt; true;"
+              toReformat="true"
+              toShortenFQNames="true">
+        <variable name="parameters"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="returnType"
+                  expression="enum(&quot;bool&quot;, &quot;string&quot;, &quot;int&quot;, &quot;array&quot;, &quot;float&quot;)"
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <variable name="terminator"
+                  expression=""
+                  defaultValue=""
+                  alwaysStopAt="true" />
+        <context>
+            <option name="PHP Expression"
+                    value="true" />
+            <option name="PHP Method Expression"
+                    value="true" />
+            <option name="PHP Method Statement"
+                    value="true" />
+            <option name="PHP Statement"
+                    value="true" />
+        </context>
+        <value>
+<![CDATA[
+fn ($parameters$): $returnType$ => $x * 2$END$$terminator$
 ]]>
         </value>
     </template>
